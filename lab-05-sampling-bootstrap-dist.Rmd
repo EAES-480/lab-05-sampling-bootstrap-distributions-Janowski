@@ -696,6 +696,8 @@ Examples:
 - `gpp ~ ta`
 
 ```{r ex3_fit_model, echo=TRUE, eval=FALSE}
+>> df_sample <- df %>% slice_sample(n = 1000, replace = FALSE)
+
 response_var <- "___"
 predictor_var <- "___"
 
@@ -713,7 +715,7 @@ B <- 2000
 
 boot_coef <- replicate(B, {
 
-  samp_rows <- df %>% slice_sample(n = nrow(df), replace = TRUE)
+  samp_rows <- df_sample %>% slice_sample(n = nrow(df_sample), replace = TRUE)
 
   fit <- lm(
     samp_rows[[response_var]] ~ samp_rows[[predictor_var]]
@@ -724,6 +726,7 @@ boot_coef <- replicate(B, {
 })
 
 boot_coef <- t(boot_coef)
+boot_coef
 ```
 
 ### Compute confidence intervals
