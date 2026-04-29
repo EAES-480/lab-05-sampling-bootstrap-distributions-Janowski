@@ -15,6 +15,8 @@ editor_options:
   chunk_output_type: inline
 ---
 
+> GM GRADE 9.5/10 - Solid code execution and generally good conceptual understanding. A few minor slips in terminology and interpretation (especially around precision/accuracy, bootstrap purpose, and confidence interval language) prevent a higher score.
+
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(lubridate)
@@ -195,7 +197,8 @@ relerr
 **Prompt (3–4 sentences):** Which variable had the largest relative error at your chosen `n_samp`?  
 Give a scientific reason why some variables are harder to estimate from a small sample.
 
-> The variable fc had the largest relative error. This coluld be because carbon flux changes a lot over different time periods. Variables with high variability and a small sample may might not show all of the possibel values. More samples might be needed to see the full range of values.
+> The variable fc had the largest relative error. This could be because carbon flux changes a lot over different time periods. Variables with high variability and a small sample may might not show all of the possibel values. More samples might be needed to see the full range of values.
+
 ---
 
 ## 4) Relative error vs sample size (partial code + you complete)
@@ -347,6 +350,8 @@ What changes if you increase `n_samp` vs increase `reps`?
 
 > The theoretical SE and simulated SE basically the same. Increasing 'n_samp' makes the sampling distribution narrower. Increasing 'reps' makes the simulation estimate more reliable.
 
+> GM: "more reliable as it more closely resembles and behaves like the normal distribution"
+
 ---
 
 # Bootstrap intuition (one sample, many resamples)
@@ -402,6 +407,7 @@ tibble(boot_mean = boot_means) %>%
 What is the bootstrap trying to approximate? When is bootstrap especially useful in EAES?
 
 > The bootstrap distribution is similar to the sampling distribution of the mean. The bootstrap is trying to approximate the true sampling distribution. It is useful when we only have one dataset and cannot repeatedly sample the population we are looking at.
+
 
 ---
 
@@ -690,6 +696,8 @@ Explain what the **red vertical lines** represent.
 
 > The red lines show the lower and upper bounds of the bootstrap confidence intervals.
 
+> GM: -0.25 The red lines represent the 2.5th and 97.5th percentiles of the bootstrap distribution, forming the 95% bootstrap confidence interval for the mean.
+
 ---
 
 ## Exercise 3 — Confidence Intervals for a Linear Model
@@ -756,6 +764,8 @@ Interpret the slope confidence interval.
 - What does that imply about the relationship between the predictor and response variable?
 
 > The slope interval didnt have zero. This means that there is a relationship between the predictor and response variable. The negatiev slope shows that as the predictor increases, the response variable decreases.
+
+> GM: -0.25 Good observation that the interval does not include zero, implying a **significant** negative relationship. Best phrasing: “We can say with 95% confidence that the true slope lies between these bounds and is negative and significant.”
 
 ---
 
